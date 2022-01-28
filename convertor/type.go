@@ -9,7 +9,10 @@
 
 package convertor
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 // Int64ToString 将 int64 转换为 string
 func Int64ToString(intNum int64) string {
@@ -42,4 +45,9 @@ func StringToBool(str string) (bool, error) {
 		return false, err
 	}
 	return b, nil
+}
+
+// To2Decimal 取2位精度并转换成float64
+func To2Decimal(value float64) (float64, error) {
+	return strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
 }

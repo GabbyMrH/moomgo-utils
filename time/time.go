@@ -4,7 +4,7 @@
  * @Author: Casso
  * @Date: 2022-01-28 10:20:33
  * @LastModifiedBy: Casso
- * @LastEditTime: 2022-01-28 15:12:39
+ * @LastEditTime: 2022-01-28 17:06:07
  */
 
 package time
@@ -150,4 +150,18 @@ func GetBetweenDates(sdate, edate string) []DS {
 	}
 
 	return d
+}
+
+// GetTimesDiffer 获取相差时间秒数
+func GetTimesDiffer(stime, etime string) (res int64, errs error) {
+	t1, err := time.ParseInLocation("2006-01-02 15:04:05", stime, time.Local)
+	t2, err2 := time.ParseInLocation("2006-01-02 15:04:05", etime, time.Local)
+	if err == nil && err2 == nil && t1.Before(t2) {
+		res = t2.Unix() - t1.Unix()
+		errs = nil
+	} else {
+		res = 0
+		errs = err
+	}
+	return
 }
