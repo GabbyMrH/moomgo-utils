@@ -4,7 +4,7 @@
  * @Author: Casso
  * @Date: 2022-01-28 10:20:33
  * @LastModifiedBy: Casso
- * @LastEditTime: 2022-01-28 14:36:20
+ * @LastEditTime: 2022-01-28 15:12:39
  */
 
 package time
@@ -37,8 +37,8 @@ func StringToTime(timeStr string) time.Time {
 	return t
 }
 
-// TimeToString time转字符串 2006-01-02 15:04:05
-func TimeToString(time time.Time) string {
+// TimeToStringFull time转字符串 2006-01-02 15:04:05
+func TimeToStringFull(time time.Time) string {
 	return time.Format(YYMMDDHHMMSS)
 }
 
