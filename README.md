@@ -4,7 +4,7 @@
  * @Author: Casso
  * @Date: 2022-01-27 18:58:10
  * @LastModifiedBy: Casso
- * @LastEditTime: 2022-01-28 11:58:27
+ * @LastEditTime: 2022-01-28 12:12:57
 -->
 # moomgo-utils
 > moomgo-utils 是一个Go语言的集合工具包，涵盖你日常所需的大部分工具组件
@@ -16,7 +16,7 @@
 
 ###### 格式如下
 
-* 例：`feat(type)`:本次提交概述
+* 例：`type(scope)`:本次提交概述
 * `type`: 本次 commit 的类型，诸如 bugfix docs style 等，参考如下:   
 
     * `feat`：添加新功能
