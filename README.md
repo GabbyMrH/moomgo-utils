@@ -1,11 +1,3 @@
-<!--
- * @PackageName: 
- * @Description: 
- * @Author: Casso
- * @Date: 2022-01-27 18:58:10
- * @LastModifiedBy: Casso
- * @LastEditTime: 2022-01-28 12:12:57
--->
 # moomgo-utils
 > moomgo-utils 是一个Go语言的集合工具包，涵盖你日常所需的大部分工具组件
 
