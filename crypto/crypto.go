@@ -9,6 +9,8 @@
 package crypto
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"math/rand"
 	"strings"
 	"time"
@@ -42,4 +44,11 @@ func RandInt64(min, max int64) int64 {
 // RandStr 获取n位随机大写字母字符
 func RandStr(n int) string {
 	return strings.ToUpper(RandStringRunes(n))
+}
+
+// GetMD5Encode 返回一个32位md5加密后的字符串
+func GetMD5Encode(data string) string {
+	h := md5.New()
+	h.Write([]byte(data))
+	return hex.EncodeToString(h.Sum(nil))
 }
