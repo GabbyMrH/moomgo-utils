@@ -14,16 +14,24 @@ import (
 	"math/rand"
 	"strings"
 	"time"
+
+	"github.com/bwmarrin/snowflake"
 )
 
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
-
+var node *snowflake.Node = nil
 var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+func init() {
+	nodes, err := snowflake.NewNode(1)
+	if err != nil {
+		panic("snowflake init faild")
+	}
+	node = nodes
+}
 
 // RandStringRunes 获取n位随机字符
 func RandStringRunes(n int) string {
+	rand.Seed(time.Now().UnixNano())
 	b := make([]rune, n)
 	for i := range b {
 		b[i] = letterRunes[rand.Intn(len(letterRunes))]
@@ -51,4 +59,9 @@ func GetMD5Encode(data string) string {
 	h := md5.New()
 	h.Write([]byte(data))
 	return hex.EncodeToString(h.Sum(nil))
+}
+
+// GetSnowFlakeID 简易雪花发号，单节点（服务器时间改变可能会加大重复几率）
+func GetSnowFlakeID() int64 {
+	return node.Generate().Int64()
 }
